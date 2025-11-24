@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("postgres://fc82849f52acee8428cc4a467038a371dce083a956d71738e0b8bcadd77e355f:sk_5-hB62oZT7BYNKNsUVyyl@db.prisma.io:5432/postgres?sslmode=require")
+}
+
+model Destination {
+  id          Int      @id @default(autoincrement())
+  name        String
+  country     String
+  city        String
+  description String
+  visited     Boolean  @default(false)
+  rating      Int?
+  notes       String?
+  budget      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
